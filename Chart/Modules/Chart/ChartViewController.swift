@@ -132,7 +132,7 @@ class ChartViewController: BaseViewController, ChartViewDelegate, ChartPresenter
             NSLayoutConstraint(item: lineChart, attribute: .top, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: lineChart, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
             NSLayoutConstraint(item: lineChart, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: lineChart, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+            NSLayoutConstraint(item: lineChart, attribute: .bottom, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .bottom, multiplier: 1, constant: 0)
         ])
         
     }
@@ -178,7 +178,8 @@ class ChartViewController: BaseViewController, ChartViewDelegate, ChartPresenter
         let yVals1 = months.enumerated().map { (index, i) -> ChartDataEntry in
             return ChartDataEntry(x: Double(index), y: Double(i))
         }
-        
+        lineChart.leftAxis.axisMaximum = Double(months.max() ?? 0) * 2
+        lineChart.leftAxis.axisMinimum = Double(months.min() ?? 0)
         let set1 = LineChartDataSet(entries: yVals1, label: "DataSet 1")
         set1.axisDependency = YAxis.AxisDependency.left
         set1.setColor(UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1))
