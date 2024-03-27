@@ -5,7 +5,7 @@ Third test
 
 ## Instalation Guide
 ```
-git clone https://github.com/reyhanl/StockPhoto.git
+git clone https://github.com/reyhanl/Chart-Test3-.git
 ```
 1. Clone this repository
 
