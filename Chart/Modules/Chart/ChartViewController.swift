@@ -79,12 +79,6 @@ class ChartViewController: BaseViewController, ChartViewDelegate, ChartPresenter
         leftAxis.drawGridLinesEnabled = true
         leftAxis.granularityEnabled = true
         
-        let rightAxis = chartView.rightAxis
-        rightAxis.labelTextColor = .red
-        rightAxis.axisMaximum = 900
-        rightAxis.axisMinimum = -200
-        rightAxis.granularityEnabled = false
-        
         chartView.animate(xAxisDuration: 2.5)
         return chartView
     }()
@@ -174,13 +168,12 @@ class ChartViewController: BaseViewController, ChartViewDelegate, ChartPresenter
     }
     
     func setLineChartData(){
-        let count = months.count
         let yVals1 = months.enumerated().map { (index, i) -> ChartDataEntry in
-            return ChartDataEntry(x: Double(index), y: Double(i))
+            return ChartDataEntry(x: Double(index + 1), y: Double(i))
         }
         lineChart.leftAxis.axisMaximum = Double(months.max() ?? 0) * 2
         lineChart.leftAxis.axisMinimum = Double(months.min() ?? 0)
-        let set1 = LineChartDataSet(entries: yVals1, label: "DataSet 1")
+        let set1 = LineChartDataSet(entries: yVals1, label: "Monthly spending")
         set1.axisDependency = YAxis.AxisDependency.left
         set1.setColor(UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1))
         set1.setCircleColor(NSUIColor.white)
