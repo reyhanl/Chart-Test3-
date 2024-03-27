@@ -1,0 +1,33 @@
+[
+    {
+        "type": "donutChart",
+        "data": [
+            {
+                "label": "Dummy data",
+                "percentage": "55",
+                "data": [
+                    {
+                        "trx_date": "21/01/2023",
+                        "nominal": 1000000
+                    },
+                    {
+                        "trx_date": "20/01/2023",
+                        "nominal": 500000
+                    },
+                    {
+                        "trx_date": "19/01/2023",
+                        "nominal": 1000000
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "lineChart",
+        "data": {
+            "month": [
+                3
+            ]
+        }
+    }
+]
